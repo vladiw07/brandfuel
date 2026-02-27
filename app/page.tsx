@@ -1,8 +1,27 @@
+// app/page.tsx (updated with founder images)
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Instagram, Mail, Phone, Users, Video, ArrowRight, ChevronDown } from "lucide-react";
+import { 
+  Instagram, 
+  Mail, 
+  Phone, 
+  Users, 
+  Video, 
+  ArrowRight, 
+  ChevronDown,
+  Facebook,
+  Linkedin,
+  Sparkles,
+  Heart,
+  MapPin
+} from "lucide-react";
+
+// Import founder images (make sure these paths are correct for your project)
+import founder1 from "./assets/Images/founder1.png";
+import founder2 from "./assets/Images/founder2.png";
 
 export default function HomePage() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -14,11 +33,11 @@ export default function HomePage() {
 
   return (
     <main className="bg-white overflow-x-hidden">
+      {/* Spacer for fixed navbar */}
+      <div className="h-20 md:h-24"></div>
+
       {/* Hero Section - Clean & Minimal */}
-      <section className="relative bg-white pt-20">
-        {/* Decorative gradient line */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
-        
+      <section className="relative bg-white">
         <div
           className={`mx-auto max-w-7xl px-6 py-16 md:py-24 transition-all duration-1000 ease-out ${
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -95,23 +114,63 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Partnership Statement - Simple & Bold with subtle pattern */}
+
+
+      {/* Partnership Statement with Founder Images - Enhanced */}
       <section className="relative py-28 bg-gray-50 overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-transparent"></div>
         <div className="absolute top-0 left-0 w-64 h-64 bg-blue-100/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-0 w-64 h-64 bg-blue-100/20 rounded-full blur-3xl"></div>
         
-        <div className="relative mx-auto max-w-4xl px-6 text-center">
-          <p className="text-3xl md:text-4xl font-light text-gray-900 leading-relaxed animate-fade-in">
-            Ние партнираме с вас, за да стимулираме 
-            <span className="block font-semibold text-blue-600 mt-3 text-4xl md:text-5xl">растежа на бизнеса.</span>
-          </p>
+        <div className="relative mx-auto max-w-7xl px-6">
+          {/* Founder Images - Larger and better positioned */}
+          <div className="flex justify-center items-center gap-8 md:gap-12 mb-16">
+            {/* Founder 1 */}
+            <div className="relative group">
+              <div className="relative w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden ring-4 ring-white shadow-2xl transition-all duration-700 group-hover:scale-110 group-hover:ring-blue-400 group-hover:shadow-blue-500/30">
+                <Image
+                  src={founder1}
+                  alt="Основател"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              {/* Subtle glow effect */}
+              <div className="absolute inset-0 rounded-full bg-blue-400/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10"></div>
+            </div>
+
+            {/* Founder 2 */}
+            <div className="relative group">
+              <div className="relative w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden ring-4 ring-white shadow-2xl transition-all duration-700 group-hover:scale-110 group-hover:ring-blue-400 group-hover:shadow-blue-500/30">
+                <Image
+                  src={founder2}
+                  alt="Основател"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              {/* Subtle glow effect */}
+              <div className="absolute inset-0 rounded-full bg-blue-400/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10"></div>
+            </div>
+          </div>
+
+          {/* Partnership Text */}
+          <div className="text-center max-w-4xl mx-auto">
+            <p className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 leading-relaxed animate-fade-in">
+              Ние партнираме с вас, 
+              <br className="hidden sm:block" />
+              за да стимулираме 
+              <span className="block font-semibold text-blue-600 mt-4 text-4xl md:text-5xl lg:text-6xl">
+                растежа на бизнеса.
+              </span>
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section className="py-28 bg-white">
+      <section id="services" className="py-28 bg-white">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center mb-16 animate-fade-up">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -123,7 +182,6 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Social Media Full Service */}
             <div className="group rounded-2xl border border-gray-200 bg-white p-8 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-blue-200">
-              {/* Image Placeholder */}
               <div className="relative h-48 w-full mb-6 overflow-hidden rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center group-hover:shadow-lg transition-all duration-500">
                 <div className="text-center transform transition-all duration-500 group-hover:scale-110">
                   <Users className="w-16 h-16 text-blue-300 group-hover:text-blue-400 transition-colors duration-300" />
@@ -153,7 +211,6 @@ export default function HomePage() {
 
             {/* Instagram Management */}
             <div className="group rounded-2xl border border-gray-200 bg-white p-8 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-pink-200">
-              {/* Image Placeholder */}
               <div className="relative h-48 w-full mb-6 overflow-hidden rounded-xl bg-gradient-to-br from-purple-50 to-pink-50 flex items-center justify-center group-hover:shadow-lg transition-all duration-500">
                 <div className="text-center transform transition-all duration-500 group-hover:scale-110">
                   <Instagram className="w-16 h-16 text-pink-300 group-hover:text-pink-400 transition-colors duration-300" />
@@ -182,7 +239,6 @@ export default function HomePage() {
 
             {/* Video Production */}
             <div className="group rounded-2xl border border-gray-200 bg-white p-8 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-purple-200">
-              {/* Image Placeholder */}
               <div className="relative h-48 w-full mb-6 overflow-hidden rounded-xl bg-gradient-to-br from-purple-50 to-violet-50 flex items-center justify-center group-hover:shadow-lg transition-all duration-500">
                 <div className="text-center transform transition-all duration-500 group-hover:scale-110">
                   <Video className="w-16 h-16 text-purple-300 group-hover:text-purple-400 transition-colors duration-300" />
@@ -212,8 +268,7 @@ export default function HomePage() {
       </section>
 
       {/* Portfolio Section */}
-      <section className="relative py-28 bg-gray-50 overflow-hidden">
-        {/* Decorative elements */}
+      <section id="work" className="relative py-28 bg-gray-50 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-transparent"></div>
         <div className="absolute top-20 left-20 w-72 h-72 bg-blue-100/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-20 w-72 h-72 bg-purple-100/20 rounded-full blur-3xl"></div>
@@ -265,7 +320,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-28 bg-white">
+      <section id="testimonials" className="py-28 bg-white">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center mb-16 animate-fade-up">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -337,7 +392,6 @@ export default function HomePage() {
 
       {/* Contact Section */}
       <section id="contact" className="relative py-28 bg-gray-900 text-white overflow-hidden">
-        {/* Decorative elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-transparent"></div>
         <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
@@ -353,7 +407,7 @@ export default function HomePage() {
             {/* Phone */}
             <div className="group rounded-xl bg-gray-800/50 backdrop-blur-sm p-6 hover:bg-gray-700 transition-all duration-300 hover:scale-105 hover:shadow-xl border border-gray-700 hover:border-blue-500">
               <Phone className="h-8 w-8 text-blue-400 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
-              <p className="text-lg font-semibold mb-1">0889929627 / 0888928003</p>
+              <p className="text-lg font-semibold mb-1">0889 929 627</p>
               <p className="text-sm text-gray-400">Phone</p>
             </div>
 
@@ -377,13 +431,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 border-t border-gray-800 py-8">
-        <div className="mx-auto max-w-7xl px-6 text-center">
-          <p className="text-gray-400 text-sm">© 2026 BrandFuel. Всички права запазени.</p>
-        </div>
-      </footer>
 
       {/* Animation styles */}
       <style jsx>{`
