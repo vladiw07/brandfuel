@@ -79,7 +79,7 @@ export default function RootLayout({
         <meta name="google-site-verification" content="your-google-verification-code" />
         
         {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon1.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         
         {/* Structured Data */}
